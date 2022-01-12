@@ -62,6 +62,16 @@ presenter.print(relation, count=4)
 presenter.close()
 ```
 
+## Example Output
+
+Using standard settings
+
+![Example Image1](https://raw.githubusercontent.com/RobinSeidel/pyrelvis/main/docs/img/example1.svg)
+
+Using custom settings
+
+![Example Image2](https://raw.githubusercontent.com/RobinSeidel/pyrelvis/main/docs/img/example2.svg)
+
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
