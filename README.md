@@ -2,6 +2,9 @@
 
 Pyrelvis is a simple Python library for visualizing binary relations.
 
+![Example Image3](https://raw.githubusercontent.com/RobinSeidel/pyrelvis/main/docs/img/example3.svg)
+
+
 ## Installation
 
 Pyrelvis depends on [Pycairo](https://github.com/pygobject/pycairo)
