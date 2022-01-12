@@ -57,7 +57,8 @@ presenter = RelationPresenter(
 		arrow_length=20
 		)
 
-presenter.print(relation, min_nodes=4)
+# Count is the number of printed nodes
+presenter.print(relation, count=4)
 presenter.close()
 ```
 
