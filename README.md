@@ -60,8 +60,8 @@ presenter = RelationPresenter(
 		arrow_length=20
 		)
 
-# Count is the number of printed nodes
-presenter.print(relation, count=4)
+# At least min_nodes are displayed
+presenter.print(relation, min_nodes=4)
 presenter.close()
 ```
 
