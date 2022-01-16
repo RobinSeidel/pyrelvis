@@ -95,7 +95,7 @@ class RelationPresenter:
         y = self.radius * math.sin(angle) + self.width / 2
         return (x, y)
 
-    def print_nodes(self, count):
+    def __print_nodes(self, count):
         theta = 2 * math.pi / count
         _, _, text_width, text_height, _, _ = self.ctx.text_extents("5")
         for node in range(1, count + 1):
@@ -103,8 +103,7 @@ class RelationPresenter:
             self.ctx.move_to(x - 0.5 * text_width, y + 0.5 * text_height)
             self.ctx.show_text(str(node))
 
-    def print_relation(self, relation, min_nodes=4):
-        count = max(min_nodes, max(list(relation), key=itemgetter(1))[0])
+    def __print_relation(self, relation, count):
         if not isinstance(relation, set):
             raise ValueError("Relation must be a set of tuples")
         for entry in relation:
@@ -112,9 +111,10 @@ class RelationPresenter:
                 raise ValueError("Relation must be a set of tuples")
             self.__arrow(2 * math.pi / count, entry[0], entry[1])
 
-    def print(self, relation, count):
-        self.print_nodes(count)
-        self.print_relation(relation, count)
+    def print(self, relation, min_nodes):
+        count = max(min_nodes, max(list(sum(relation, ()))))
+        self.__print_nodes(count)
+        self.__print_relation(relation, count)
 
 
 def rel_to_svg(path, relation, min_nodes=4):
@@ -128,3 +128,6 @@ if __name__ == "__main__":
     for _ in range(5):
         rel.add((random.randint(1, 4), random.randint(1, 4)))
     rel_to_svg("out.svg", rel)
+
+    relation = {(1,9), (2,4)}
+    rel_to_svg('out.svg', relation)
